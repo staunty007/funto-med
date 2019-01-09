@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/doctor/dashboard', 'DoctorController@index')->name('doctor.dashbaord');
+Route::get('/admin/dashboard', 'HomeController@index')->name('admin.dashboard');
+
+Route::get('{path}',"HomeController@index")->where('path','([A-z\d-\/_.]+)?');
+Route::get('{path}',"DoctorController@index")->where('path','([A-z\d-\/_.]+)?');
